@@ -110,7 +110,20 @@ All monetary values are displayed in **RM** with two decimal places.
 ## 🚀 How to Run the App
 
 1. Clone or download this repository:
-```bash
-   git clone https://github.com/malsaaaa/VehicleLoanCalculator.git
    ```bash
    git clone https://github.com/yourusername/VehicleLoanCalculator.git
+
+## 👤 Author
+
+Name: Syed Danish Aslam bin Syed Mohd Mahzan
+
+Matric No: 2023226002
+
+Course: ICT602
+
+GitHub: https://github.com/malsaaaa/VehicleLoanCalculator
+
+📜 Copyright
+
+© 2025 Syed Danish Aslam. All rights reserved.
+This project is created for educational purposes as part of ICT602 Individual Assignment.

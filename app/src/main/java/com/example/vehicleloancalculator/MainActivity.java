@@ -1,19 +1,25 @@
 package com.example.vehicleloancalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText etVehiclePrice, etDownPayment, etLoanPeriod, etInterestRate;
     private TextView tvLoanAmount, tvTotalInterest, tvTotalPayment, tvMonthlyPayment;
-    private Button btnCalculate, btnAbout;
+    private Button btnCalculate; // Removed btnAbout
+    private BottomNavigationView bottomNavigationView; // New: Declare BottomNavigationView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +38,46 @@ public class MainActivity extends AppCompatActivity {
         tvMonthlyPayment = findViewById(R.id.tvMonthlyPayment);
 
         btnCalculate = findViewById(R.id.btnCalculate);
-        btnAbout     = findViewById(R.id.btnAbout);
+
+        // New: Bind BottomNavigationView using the ID from the XML layout
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         // Calculate button logic
         btnCalculate.setOnClickListener(v -> calculateLoan());
 
-        // About button -> open AboutActivity
-        btnAbout.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(intent);
+        // Set the default selected item to 'Home' when the activity starts
+        bottomNavigationView.setSelectedItemId(R.id.menu_home);
+
+        // New: Handle Bottom Navigation Item Selection
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.menu_home) {
+                    // Already on the main calculator screen
+                    return true;
+                } else if (itemId == R.id.menu_about) {
+                    // Open AboutActivity
+                    Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
         });
+
+        // Removed the old btnAbout logic which is now handled by the bottom navigation bar.
+    }
+
+    // This ensures that when the user returns from AboutActivity (via the Back button),
+    // the 'Home' tab is visibly selected on the BottomNavigationView.
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setSelectedItemId(R.id.menu_home);
+        }
     }
 
     private void calculateLoan() {

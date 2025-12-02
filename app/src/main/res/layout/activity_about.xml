@@ -1,62 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Scrollable Content Area: Placed above the BottomNavigationView -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView">
 
-        <ImageView
-            android:id="@+id/ivAppIcon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:id="@+id/tvAppName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vehicle Loan Calculator"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="12dp" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tvAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Author: Syed Danish Aslam bin Syed Mohd Mahzan
+            <ImageView
+                android:id="@+id/ivAppIcon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Loan Calculator"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author: Syed Danish Aslam bin Syed Mohd Mahzan
            Matric No: 2023226002
 Course: ICT602"
-            android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="12dp" />
 
-        <TextView
-            android:id="@+id/tvCopyright"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="© 2025 Syed Danish Aslam. All rights reserved."
-            android:layout_marginBottom="12dp" />
+            <TextView
+                android:id="@+id/tvCopyright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="© 2025 Syed Danish Aslam. All rights reserved."
+                android:layout_marginBottom="12dp" />
 
-        <TextView
-            android:id="@+id/tvGithub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="https://github.com/malsaaaa/VehicleLoanCalculator"
-            android:autoLink="web" />
+            <TextView
+                android:id="@+id/tvGithub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://github.com/malsaaaa/VehicleLoanCalculator"
+                android:autoLink="web"
+                android:layout_marginBottom="24dp" />
 
-        <!--Back button-->
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:layout_marginTop="24dp" />
+            <!-- The original 'btnBack' has been removed as navigation is handled by the Bottom Nav Bar. -->
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar (Fixed at the bottom) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>

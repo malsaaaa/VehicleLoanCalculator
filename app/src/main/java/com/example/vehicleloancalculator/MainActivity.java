@@ -67,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Removed the old btnAbout logic which is now handled by the bottom navigation bar.
     }
-
     // This ensures that when the user returns from AboutActivity (via the Back button),
     // the 'Home' tab is visibly selected on the BottomNavigationView.
     @Override

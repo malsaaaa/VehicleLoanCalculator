@@ -58,8 +58,6 @@ Course: ICT602"
                 android:autoLink="web"
                 android:layout_marginBottom="24dp" />
 
-            <!-- The original 'btnBack' has been removed as navigation is handled by the Bottom Nav Bar. -->
-
         </LinearLayout>
     </ScrollView>
 

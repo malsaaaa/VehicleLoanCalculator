@@ -97,7 +97,6 @@
                 android:text="Monthly Payment: -"
                 android:layout_marginBottom="24dp" />
 
-            <!-- The original 'btnAbout' has been removed. -->
 
         </LinearLayout>
     </ScrollView>

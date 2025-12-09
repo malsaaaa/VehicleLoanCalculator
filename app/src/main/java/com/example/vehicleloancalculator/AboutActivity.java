@@ -18,14 +18,14 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about); // References the updated activity_about.xml
 
-        // New: Bind BottomNavigationView
+        // Bind BottomNavigationView
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         // Set the default selected item to 'About' as this is the AboutActivity
         // This relies on the menu ID 'menu_about' being defined in res/menu/bottom_nav_menu.xml
         bottomNavigationView.setSelectedItemId(R.id.menu_about);
 
-        // New: Handle Bottom Navigation Item Selection
+        // Handle Bottom Navigation Item Selection
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -44,7 +44,6 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
     }
-
     // Ensures that when the user presses the device's back button,
     // the 'About' tab remains visually selected if they stay in this activity.
     @Override

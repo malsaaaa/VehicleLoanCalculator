@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3949AB</color>        <!-- Indigo -->
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#FF5722</color>        <!-- Indigo -->
+    <color name="colorPrimaryDark">#FF9800</color>
     <color name="colorAccent">#FFB300</color>        <!-- Amber -->
     <color name="backgroundGrey">#F4F6FB</color>     <!-- Light background -->
     <color name="cardBackground">#FFFFFF</color>

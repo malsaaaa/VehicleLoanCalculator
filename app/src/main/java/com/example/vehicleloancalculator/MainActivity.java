@@ -57,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
         btnCalculate = findViewById(R.id.btnCalculate);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        // -----------------------------------------------------------
         // 2. Event Listeners
-        // -----------------------------------------------------------
 
         // specific listener for the "Calculate" button
         // Uses a lambda expression to call the calculateLoan() method

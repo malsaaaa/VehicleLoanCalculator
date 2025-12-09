@@ -114,17 +114,15 @@ public class MainActivity extends AppCompatActivity {
         String strPeriod = etLoanPeriod.getText().toString();
         String strRate = etInterestRate.getText().toString();
 
-        // -----------------------------------------------------------
+
         // ERROR HANDLING 1: Check if input fields are empty
-        // -----------------------------------------------------------
         if (strPrice.isEmpty() || strDownPayment.isEmpty() || strPeriod.isEmpty() || strRate.isEmpty()) {
             Toast.makeText(this, "Error: Please fill in all fields.", Toast.LENGTH_SHORT).show();
             return; // Stop execution here
         }
 
-        // -----------------------------------------------------------
+
         // ERROR HANDLING 2: Check if input is just a decimal point "."
-        // -----------------------------------------------------------
         // This happens if a user types "." and nothing else, which crashes Double.parseDouble
         if (strPrice.equals(".") || strDownPayment.equals(".") || strPeriod.equals(".") || strRate.equals(".")) {
             Toast.makeText(this, "Error: Invalid input format (cannot be just '.').", Toast.LENGTH_SHORT).show();
@@ -138,11 +136,22 @@ public class MainActivity extends AppCompatActivity {
             int loanPeriodYears = Integer.parseInt(strPeriod); // Assuming years is an integer
             double interestRate = Double.parseDouble(strRate);
 
-            // -----------------------------------------------------------
             // ERROR HANDLING 3: Down Payment cannot be higher than Vehicle Price
-            // -----------------------------------------------------------
+
             if (downPayment > vehiclePrice) {
                 Toast.makeText(this, "Error: Down payment cannot be more than vehicle price.", Toast.LENGTH_SHORT).show();
+                return; // Stop execution here
+            }
+
+            // ERROR HANDLING 4: Loan Period cannot be more than 30 years
+            if( loanPeriodYears > 30){
+                Toast.makeText(this, "Error: Loan period cannot be more than 30 years.", Toast.LENGTH_SHORT).show();
+                return; // Stop execution here
+            }
+
+            // ERROR HANDLING 5: Interest Rate cannot be more than 100%
+            if( interestRate > 100){
+                Toast.makeText(this, "Error: Interest rate cannot be more than 100%.", Toast.LENGTH_SHORT).show();
                 return; // Stop execution here
             }
 
